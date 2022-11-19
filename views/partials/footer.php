@@ -1,4 +1,3 @@
-
 </body>
 <!-- store end -->
 <script src="assets/js/jquery-1.12.4.min.js"></script>
