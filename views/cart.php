@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade modal-lg" id="CartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl  modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title header text-center mt-4">Cart Details</h5>

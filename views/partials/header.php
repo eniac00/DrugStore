@@ -22,34 +22,72 @@ else {$title = "Error";}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
+</head>
+
 <body>
 
   <!-- temporary navbar -->
   <div class="row header-bg">
-
     <nav class="navbar navbar-expand-lg">
       <div class="container">
+        
         <button class="navbar-toggler" type="button">
-          <!-- <span class="navbar-toggler-icon"></span> -->
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="/">Mayer Doa Drug store</a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav ms-auto text-left mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">Shop</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/registration">Registration</a>
-            </li>
-          </ul>
-        </div>
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <i class="fa fa-bars"></i>
+          </button>
+          <a class="navbar-brand" href="/"><i class="fal fa-heartbeat" style="font-weight:400; font-size:28px;"></i> QuickMeds</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav  col-lg-4">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Checkout</a>
+              </li>
+              
+            </ul>
+
+            <ul class="navbar-nav ms-auto text-left col-lg-3">
+              <?php
+                if (isset($_SESSION['name'])){
+                  ?>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Welcome <?php echo $_SESSION['name']; ?>!</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                  <?php 
+                }
+                else{
+                  ?>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/registration">Registration</a>
+                    </li>
+                  <?php
+                }
+              ?>
+
+            </ul>
+          </div>
+
       </div>
     </nav>
   </div>
+
+
+
+
+  <!-- Bootstrap js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <script src="./assets/js/Font-Awesome.js"></script>
+</body>
+
+</html>

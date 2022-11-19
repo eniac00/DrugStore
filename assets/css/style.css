@@ -7,7 +7,7 @@
 }
 
 a {
-  transition: all 0.3s;
+  transition: all .3s;
   text-decoration: none;
 }
 
@@ -34,84 +34,126 @@ h6 {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-label {
+label{
   margin-top: 0;
-  margin-bottom: 0px;
+  margin-bottom: 0px;    
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-a:link {
-  color: #059377;
+a:link{
+  text-decoration: none;
+  color:#059377;
 }
-a:link:hover {
-  color: #13705e;
+a:link:hover{
+  color:#13705e;
 }
 
 /* #059377 --optional color */
-.header {
-  font-size: 32px;
+.header{
+  font-size: 30px;
   color: #059377;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   /* text-transform: uppercase; */
 }
 
-.form-header {
-  font-size: 32px;
+.form-header{
+  font-size: 30px;
   color: #059377;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
-.sub-header {
+.sub-header{
   color: rgb(35, 33, 33);
   font-weight: 300;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-.submit-btn {
-  height: 40px;
+
+.submit-btn{
+  height:40px;
   width: 50%;
   border: 2px solid #059377;
   border-radius: 10px;
   outline: none;
-  color: white;
+  color:white;
   background-color: #059377;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-.submit-btn:hover {
-  color: #059377;
+.submit-btn:hover{
+  color:#059377;
   background-color: white;
-  transition: 0.5s;
+  transition: .5s;
 }
 /* common css end */
-.main-formbg {
+.search-box{
+  height: 40px;
+  display: flex;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 30px;
+  align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.search-box:hover input{
+  width: 400px;
+}
+
+.search-box input{
+  width:0;
+  outline: none;
+  border:none;
+  font-weight: 500;
+  transition:.8s;
+  background: transparent;
+}
+.search-box button{
+  background: none;
+  border: none;
+}
+.search-box button i{
+  color:#059377;
+  font-size: 16px;
+}
+.search-box a i{
+  color:#059377;
+  font-size: 16px;
+}
+
+.main-formbg{
   padding-top: 80px;
   padding-bottom: 80px;
   /* background-color:rgb(184, 184, 184); */
+
 }
 
-.form-bg {
+.form-bg{
   padding-top: 4%;
   padding-bottom: 4%;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: rgba(78, 82, 87, 0.2) 0px 8px 24px;
 }
-.form {
+
+.form{
   padding-left: 5%;
   padding-right: 5%;
 }
-.line {
+
+.line{
   align-items: center;
   border-bottom: 1px solid #dadde1;
   display: flex;
   margin: 20px 16px;
   text-align: center;
 }
-.icon-btn {
+
+.icon-btn{
   border: 1px solid #059377;
   border-radius: 50%;
   background: #059377;
@@ -119,38 +161,42 @@ a:link:hover {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color:#fff;
 }
 
-.icon-btn:hover {
-  transition: 0.5s;
+.icon-btn:hover{
+  transition: .5s;
   background-color: #fff;
-  color: #059377;
+  color:#059377;
 }
 
 /* navbar */
-.navbar {
+.navbar{
   box-shadow: rgba(78, 82, 87, 0.2) 0px 8px 24px;
 }
-.nav-link {
+
+.nav-link{
   font-size: 20px;
   color: #13705e !important;
   font-variant: 500;
   text-transform: capitalize;
 }
-.navbar .navbar-brand {
-  color: #13705e;
+
+.navbar .navbar-brand{
+  color: #13705e; 
   font-weight: 600;
   font-size: 24px;
 }
-.navbar .navbar-brand:hover {
+
+.navbar .navbar-brand:hover{
   font-size: 25px;
   color: #13705e;
   transition: 0.5s;
 }
 
+
 /* home page banner */
-#banner-bg {
+#banner-bg{
   width: 100%;
   padding-top: 220px;
   padding-bottom: 220px;
@@ -162,62 +208,85 @@ a:link:hover {
 
 /* Shop */
 
-#shop-bg {
+#shop-bg{
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-.card-body {
+.card-body{
   padding: 0 !important;
 }
 
-.product-card img {
+.product-card img{
   height: 350px;
   width: auto;
 }
 
-.product-card .price {
-  display: inline-block;
+.product-card .price{
+  display:inline-block;
 }
-.product-card .description {
+.product-card .description{
   text-align: left;
 }
-.product-card input {
-  width: 40%;
+.product-card input{
+  width: 100%;
   height: 30px;
 }
 
+/* quantity input */
+
+.inc_dec{
+  display: flex;
+  background-color: #fff;
+  border: 2px solid  #13705dc8;
+}
+
+#quantity{
+  border: none;
+  text-align: center;
+  font-size: 20px;
+  color:#059377;
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield; 
+}
+
+
 /* problem here with allignment cant take it right */
-.product-card .quantity {
+.product-card .quantity{
   margin-left: 40%;
   padding-left: 5px;
   border-radius: 5px;
+  
 }
 
-.add-product-btn {
+.add-product-btn{
   height: 40px;
   width: 70%;
   border: 2px solid #059377;
   border-radius: 10px;
   outline: none;
-  color: white;
+  color:white;
   background-color: #059377;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-.add-product-btn:hover {
-  color: #059377;
+.add-product-btn:hover{
+  color:#059377;
   background-color: white;
-  transition: 0.5s;
+  transition: .5s;
 }
 
-.cart-row {
-  margin-top: 100px;
-}
-
-.cart-row .header {
-  margin-bottom: 50px;
-}
 
 table th td {
   text-align: center;
@@ -231,11 +300,9 @@ table th td {
 
 .action {
   background: rgb(41, 189, 164);
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  box-shadow: 0 5px 7px 0px gray;
-  transition: background-color 0.4s ease-in-out;
+  padding: 30px;
+  border-radius: 15px;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .action i {
@@ -249,5 +316,5 @@ table th td {
 }
 
 .action:hover {
-  background-color: rgb(218, 203, 210);
+  background-color: #EFD39D;
 }

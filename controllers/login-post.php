@@ -22,7 +22,7 @@
         }
 
         // sql query here
-        $select = "SELECT email, password FROM users where email='$email'";
+        $select = "SELECT first_name, email, password FROM users where email='$email'";
         $query = mysqli_query($db, $select);
 
         $assoc = mysqli_fetch_assoc($query);
@@ -30,6 +30,8 @@
         $db_pass = $assoc['password'];
 
         if ($db_pass == $password){
+            $_SESSION['name'] =  $assoc['first_name'];
+            //echo $_SESSION['name'] ;
             header('location:/'); // <-- should redirect to user index page
         }
         else{

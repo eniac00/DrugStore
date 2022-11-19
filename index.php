@@ -7,6 +7,7 @@ require_once __DIR__.'/router.php';
 get('/', 'views/home.php');
 get('/login', 'views/login/login.php');
 get('/registration', 'views/registration/registration.php');
+get('/logout', 'controllers/logout.php');
 
 // all the post request goes through here
 post('/', 'views/home.php');
