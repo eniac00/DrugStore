@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 06:34 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Host: localhost:3306
+-- Generation Time: Nov 29, 2022 at 07:00 PM
+-- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2-1ubuntu2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,23 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `company` varchar(255) DEFAULT NULL,
-  `product_image` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `product_name` varchar(50) NOT NULL,
+  `product_desc` varchar(100) DEFAULT NULL,
+  `price` double NOT NULL,
+  `stock` int(11) NOT NULL,
+  `company` varchar(30) NOT NULL,
+  `gen_name` varchar(30) NOT NULL,
+  `product_image` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `quantity`, `company`, `product_image`) VALUES
-(1, 'MULTIVIT PLUS', 'Multi-vitamin supplements', 60, 1500, 'SQUARE PHARMACEUTICALS LIMITED', 'product1.png'),
-(2, 'CEEVIT 250MG Tab', 'Vitamin c supplements', 2, 2300, 'SQUARE PHARMACEUTICALS LIMITED', 'product2.png'),
-(3, 'GENSULIN R 100 IU VIAL INSULIN', 'Insulin', 450, 1200, 'BEXIMCO PHARMACEUTICALS LTD', 'product3.png'),
-(4, 'MAXPRO EC 20 MG Tab', 'Used as treatment for acidity', 45, 600, 'RENATA LIMITED', 'product4.png');
+INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `price`, `stock`, `company`, `gen_name`, `product_image`) VALUES
+(14, 'napa', 'sdfsdf', 23, 234, 'wass', 'napa', '63865626907188.76471045.jpg'),
+(15, 'asdf', 'sdfsdf23sagae', 23, 23525, 'sdf', 'wordl', '63865664a09ca1.57374131.jpg');
 
 -- --------------------------------------------------------
 
@@ -59,22 +58,25 @@ CREATE TABLE `users` (
   `last_name` varchar(255) DEFAULT NULL,
   `phone` varchar(30) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `password` varchar(255) DEFAULT NULL,
+  `is_admin` tinyint(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `phone`, `email`, `password`) VALUES
-(1, 'Sanjida ', 'Tasnim', '01234567892', 'sanjida@gmail.com', 'password'),
-(2, 'John', 'Doe', '01254789630', 'john@gmail.com', 'password'),
-(3, 'Mark ', 'Maddness', '0123648948', 'mark@gmal.com', 'password'),
-(4, 'Anya', 'Forger', '01258963478', 'anya@gmail.com', 'password'),
-(5, 'Sanji', 'Tas', '011354646864', 'sanji@gmail.com', 'password'),
-(6, 'Abir', 'B', '01235648', 'abir@gmail.com', 'password'),
-(7, 'abcd', 'were', '0125874693', 'abcd@gmail.com', 'password'),
-(8, 'Namreen', 'S', '0123546849', 'namreen@gmail.com', 'password');
+INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `phone`, `email`, `password`, `is_admin`) VALUES
+(1, 'Sanjida ', 'Tasnim', '01234567892', 'sanjida@gmail.com', 'password', 0),
+(2, 'John', 'Doe', '01254789630', 'john@gmail.com', 'password', 0),
+(3, 'Mark ', 'Maddness', '0123648948', 'mark@gmal.com', 'password', 0),
+(4, 'Anya', 'Forger', '01258963478', 'anya@gmail.com', 'password', 0),
+(5, 'Sanji', 'Tas', '011354646864', 'sanji@gmail.com', 'password', 0),
+(6, 'Abir', 'B', '01235648', 'abir@gmail.com', 'password', 0),
+(7, 'abcd', 'were', '0125874693', 'abcd@gmail.com', 'password', 0),
+(8, 'Namreen', 'S', '0123546849', 'namreen@gmail.com', 'password', 0),
+(10, 'hello', 'world', '2342342342', 'hello@gmail.com', 'password', 0),
+(11, 'admin', NULL, NULL, 'admin@gmail.com', 'admin', 1);
 
 --
 -- Indexes for dumped tables
@@ -100,13 +102,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

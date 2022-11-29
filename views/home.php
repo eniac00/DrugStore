@@ -1,8 +1,6 @@
 <?php
 
 require_once './config/db.php';
-include_once './views/partials/header.php';
-
 // codes for add to cart
 
 if (isset($_POST['add_to_cart'])) {
@@ -116,11 +114,11 @@ include_once './views/partials/header.php';
                                     <div class="product-card m-auto my-2" style="margin: 0px 20px; padding-left: 10px; padding-right:10px; box-shadow:  rgba(78, 82, 87, 0.2) 0px 8px 24px; border-radius: 10px;">
                                         <div class="card border-0  mb-2">
                                             <div class="card-body text-center">
-                                                <img src="../assets/images/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
+                                                <img src="./images/products/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description"><?php echo $row['description']; ?></p>
+                                        <p class="description"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -159,11 +157,11 @@ include_once './views/partials/header.php';
                                     <div class="product-card m-auto my-2" style="margin: 0px 20px; padding-left: 10px; padding-right:10px; box-shadow:  rgba(78, 82, 87, 0.2) 0px 8px 24px; border-radius: 10px;">
                                         <div class="card border-0  mb-2">
                                             <div class="card-body text-center">
-                                                <img src="../assets/images/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
+                                                <img src="./images/products/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description"><?php echo $row['description']; ?></p>
+                                        <p class="description"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -202,11 +200,11 @@ include_once './views/partials/header.php';
                                 <div class="product-card m-auto my-2" style="margin: 0px 20px; padding-left: 10px; padding-right:10px; box-shadow:  rgba(78, 82, 87, 0.2) 0px 8px 24px; border-radius: 10px;">
                                     <div class="card border-0  mb-2">
                                         <div class="card-body text-center">
-                                            <img src="../assets/images/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
+                                            <img src="./images/products/<?php echo $row['product_image']; ?>" class="img-fluid img-responsive mt-2" style="vertical-align: middle;" alt="product-img">
                                         </div>
                                     </div>
                                     <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                    <p class="description"><?php echo $row['description']; ?></p>
+                                    <p class="description"><?php echo $row['product_desc']; ?></p>
                                     <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                     <div class="m-auto col-3">
