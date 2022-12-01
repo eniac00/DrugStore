@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2022 at 07:00 PM
+-- Generation Time: Dec 01, 2022 at 07:42 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -29,22 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(50) NOT NULL,
-  `product_desc` varchar(100) DEFAULT NULL,
+  `product_name` varchar(30) NOT NULL,
+  `generic_name` varchar(150) DEFAULT NULL,
   `price` double NOT NULL,
-  `stock` int(11) NOT NULL,
+  `product_desc` text DEFAULT NULL,
+  `expiration_date` date NOT NULL,
   `company` varchar(30) NOT NULL,
-  `gen_name` varchar(30) NOT NULL,
-  `product_image` varchar(50) DEFAULT NULL
+  `stock` int(11) NOT NULL,
+  `product_img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `price`, `stock`, `company`, `gen_name`, `product_image`) VALUES
-(14, 'napa', 'sdfsdf', 23, 234, 'wass', 'napa', '63865626907188.76471045.jpg'),
-(15, 'asdf', 'sdfsdf23sagae', 23, 23525, 'sdf', 'wordl', '63865664a09ca1.57374131.jpg');
+INSERT INTO `products` (`product_id`, `product_name`, `generic_name`, `price`, `product_desc`, `expiration_date`, `company`, `stock`, `product_img`) VALUES
+(1, 'Napa Extra', 'Paracetamol', 2, 'Paracetamol is an analgesic and antipyretic with just a little anti-inflammatory effect. Paracetamol (Acetaminophen) is considered to work largely in the central nervous system (CNS)', '2029-12-29', 'Beximco', 295, '6388fab2934246.83926394.jpg'),
+(2, 'Dermasol', 'Clobetasol Propinate', 71, 'Clobetasol Propionate is used to treat the following dermatoses in adults, the elderly, and children over the age of one year.', '2023-02-25', 'Square', 105, '6388fee294ee85.91952131.jpg'),
+(3, 'Phenadryl', 'Diphenhydramine Hydrochloride', 40, 'PHENADRYL is indicated in all histaminic diseases such as perennial and seasonal allergic rhinitis, vasomotor rhinitis, allergic conjunctivitis, urticaria, angio-edema, allergic reactions to blood and plasma, motion sickness and drug induced parkinsonism. It is also indicated in cough.', '2023-02-27', 'ACME', 350, '6388ff45b13454.97830779.jpg'),
+(4, 'Losart Plus', 'Losartan Potasssium + Hydrochlorothiazide', 12, 'Hypertension: Losartan Potassium is used to treat high blood pressure. It can be taken alone or with additional antihypertensive medications (eg. thiazide diuretics).', '2029-12-29', 'ACME', 150, '6388ffef970983.24705347.jpg'),
+(5, 'Cefixim', 'Cefixime Trihydrate', 35, 'Cefixime is a third-generation semisynthetic cephalosporin antibiotic for oral administration. It is bactericidal against a broad spectrum of gram positive and gram-negative bacteria at easily achievable plasma concentrations. ', '2024-02-02', 'Ibn Sina', 348, '6389005a060a73.51287419.jpg'),
+(6, 'Esocon', 'Esomeprazole Magnesium Trihydrate', 7, 'Esomeprazole is a proton pump inhibitor that inhibits gastric acid secretion by specifically inhibiting ATPase H + / K + in gastric parietal cells. Esomeprazole (omeprazole isomer) is the first unique optical isomer of proton pump inhibitors, which provides better acid control than racemic proton pump inhibitors.', '2024-09-02', 'Biopharma', 405, '638900aa150941.99945683.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`

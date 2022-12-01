@@ -5,15 +5,16 @@ require_once './config/db.php';
 if (isset($_POST['add_product'])) {
 
     $product_name = $_POST['product_name'];
-    $gen_name = $_POST['gen_name'];
+    $generic_name = $_POST['generic_name'];
     $company = $_POST['company'];
     $product_desc = $_POST['product_desc'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
-    $file = $_FILES['product_image'];
+    $expiration_date = $_POST['expiration_date'];
+    $file = $_FILES['product_img'];
 
 
-    if ($product_name && $gen_name && $company && $product_desc && $price && $stock && $file) {
+    if ($product_name && $generic_name && $company && $product_desc && $price && $stock && $file && $expiration_date) {
         $fileName = $file['name'];
         $fileTempName = $file['tmp_name'];
         $fileError = $file['error'];
@@ -37,8 +38,8 @@ if (isset($_POST['add_product'])) {
             die();
         }
 
-        $stmt = $db->prepare("INSERT INTO `products` (product_name, product_desc, price, stock, company, gen_name, product_image) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssdisss", $product_name, $product_desc, $price, $stock, $company, $gen_name, $fileNameNew);
+        $stmt = $db->prepare("INSERT INTO `products` (product_name, generic_name, price, product_desc, expiration_date, company, stock, product_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdsssis", $product_name, $generic_name, $price, $product_desc, $expiration_date, $company, $stock, $fileNameNew);
         $stmt->execute();
         move_uploaded_file($fileTempName, $fileDest);
         if ($stmt->affected_rows === 0) {

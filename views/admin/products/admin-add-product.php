@@ -13,8 +13,8 @@
                             <label for="product_name">Product Name</label>
                         </div>
                         <div class="col form-floating mb-3">
-                            <input type="text" class="form-control" id="gen_name" name="gen_name" placeholder="e.g Napa, Tusca etc" required>
-                            <label for="gen_name">General Name</label>
+                            <input type="text" class="form-control" id="generic_name" name="generic_name" placeholder="e.g Napa, Tusca etc" required>
+                            <label for="generic_name">General Name</label>
                         </div>
                         <div class="col form-floating mb-3">
                             <input type="text" class="form-control" id="company" name="company" placeholder="Beximco" required>
@@ -27,18 +27,22 @@
                         <label for="product_desc">Product Description</label>
                     </div>
 
-                    <div class="row g-2">
+                    <div class="row g-3">
                         <div class="col form-floating mb-3">
-                            <input type="text" class="form-control" id="price" name="price" placeholder="10 tk" required>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="10 tk" required>
                             <label for="price">Price</label>
                         </div>
                         <div class="col form-floating mb-3">
                             <input type="number" class="form-control" id="stock" name="stock" placeholder="10" required>
                             <label for="stock">Stock</label>
                         </div>
+                        <div class="col form-floating mb-3">
+                            <input type="date" class="form-control" id="expiration_date" name="expiration_date" placeholder="02-03-1971" required>
+                            <label for="expiration_date">Expiration date</label>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <input type="file" class="form-control" name="product_image" aria-label="file example" required>
+                        <input type="file" class="form-control" name="product_img" aria-label="file example" required>
                     </div>
                     <div class="col-lg-6 m-auto text-center">
                         <button name="add_product" type="submit" class="submit-btn m-auto btn-block">Add</button>

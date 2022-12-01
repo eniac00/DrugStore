@@ -22,11 +22,9 @@
 
 <body class="d-flex flex-column min-vh-100">
   <div class="container-fluid">
-
     <!-- temporary navbar -->
     <div class="row header-bg">
       <nav class="navbar navbar-expand-lg">
-
         <?php
         if (isset($_SESSION['user_id']) && !$_SESSION['is_admin']) {
           include_once './views/partials/buttons/user_buttons.php';

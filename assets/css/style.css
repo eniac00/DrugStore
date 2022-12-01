@@ -319,3 +319,12 @@ table th td {
   background-color: #EFD39D;
 }
 
+td {
+  vertical-align: middle;
+}
+
+
+/* still unsure about the footer */
+.container-fluid {
+  padding: 0px !important;
+}

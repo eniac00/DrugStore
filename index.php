@@ -18,7 +18,9 @@ get('/admin-products', 'views/admin/products/admin-products.php');
 post('/', 'views/home.php');
 post('/registration', 'controllers/registration-post.php');
 post('/login', 'controllers/login-post.php');
-post('/admin-add-product', 'controllers/admin/admin-add-product-post.php');
+post('/admin-add-product', 'controllers/admin/products/admin-add-product-post.php');
+post('/admin-delete-product', 'controllers/admin/products/admin-delete-product-post.php');
+post('/admin-update-product', 'controllers/admin/products/admin-update-product-post.php');
 
 // The 404.php has access to $_GET and $_POST
 any('/404','views/404.php');
