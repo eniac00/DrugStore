@@ -105,6 +105,21 @@
               }
               ?>
             </span>
+            <span class="text-color">
+              <?php
+              if (isset($_SESSION['duplicate'])) {
+              ?>
+                <style>
+                  .text-color {
+                    color: red;
+                  }
+                </style>
+              <?php
+                echo $_SESSION['duplicate'];
+                unset($_SESSION['duplicate']);
+              }
+              ?>
+            </span>
           </div>
 
           <!-- Password input -->

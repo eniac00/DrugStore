@@ -5,22 +5,33 @@ require_once __DIR__.'/router.php';
 
 // all the get request goes through here
 get('/', 'views/home.php');
-get('/login', 'views/login/login.php');
+post('/', 'views/home.php');
+
+// registration
 get('/registration', 'views/registration/registration.php');
+post('/registration', 'controllers/registration-post.php');
+
+// login
+get('/login', 'views/login/login.php');
+post('/login', 'controllers/login-post.php');
+
+//logout
 get('/logout', 'controllers/logout.php');
+
+// customer
+get('/customer-profile', 'views/customer/profile/customer-profile.php');
+get('/customer-orders', 'views/customer/orders/customer-orders.php');
 
 // admin
 get('/admin-dashboard', 'views/admin/admin-dashboard.php');
 get('/admin-products', 'views/admin/products/admin-products.php');
+get('/admin-customers', 'views/admin/customers/admin-customers.php');
+get('/admin-orders', 'views/admin/orders/admin-orders.php');
 
-
-// all the post request goes through here
-post('/', 'views/home.php');
-post('/registration', 'controllers/registration-post.php');
-post('/login', 'controllers/login-post.php');
 post('/admin-add-product', 'controllers/admin/products/admin-add-product-post.php');
 post('/admin-delete-product', 'controllers/admin/products/admin-delete-product-post.php');
 post('/admin-update-product', 'controllers/admin/products/admin-update-product-post.php');
+
 
 // The 404.php has access to $_GET and $_POST
 any('/404','views/404.php');

@@ -1,27 +1,25 @@
 <div class="container">
-    <button class="navbar-toggler" type="button">
-        <!-- <span class="navbar-toggler-icon"></span> -->
-        <i class="fa fa-bars"></i>
-    </button>
 
+    <button class="navbar-toggler" style="border: none;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+         <i class="fa fa-bars" style="color: #13705E; font-size: 25px;"></i>
+    </button>
     <a class="navbar-brand" href="/"><i class="fal fa-heartbeat" style="font-weight:400; font-size:28px;"></i> QuickMeds</a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-
+    <div class="collapse navbar-collapse" id="navbarToggler">
+            
         <ul class="navbar-nav  col-lg-4">
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/">Shop</a>
+                <a class="nav-link" href="/customer-profile">Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Checkout</a>
+                <a class="nav-link" href="/customer-orders">Orders</a>
             </li>
-
         </ul>
 
-        <ul class="navbar-nav ms-auto text-left col-lg-3">
+        <ul class="navbar-nav ms-auto text-left col-lg-3" style="width:auto;">
             <li class="nav-item">
                 <a class="nav-link" href="#">Welcome <?php echo $_SESSION['name']; ?>!</a>
             </li>

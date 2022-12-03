@@ -7,13 +7,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row py-4 cart-row">
+                <div class="row py-4 cart-row ps-4 pe-4">
                     <?php
                     $total = 0;
 
                     $output = "";
                     $output .= '
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="cart-table">
                     <tr>
                         <th>ID</th>
                         <th>Product Name</th> 

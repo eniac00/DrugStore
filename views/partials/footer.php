@@ -1,10 +1,16 @@
-</div>
+
+
+
 <footer class="mt-auto">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item">Made with <i class="fa fa-heart" aria-hidden="true"></i> by ....</li>
+                <li class="nav-item">Made with <i class="fa fa-heart" style = "color: #20937c;" aria-hidden="true"></i> by ....</li>
         </ul>
-        <p class="text-center text-muted">© 2022 QuickMeds, Inc</p>
-</footer>
+        <div class="container">
+                <div class="row my-3" >
+                        <p class="text-center text-muted">© 2022 QuickMeds, Inc</p>
+                </div>
+        </div>  
+</footer> 
 
 </body>
 

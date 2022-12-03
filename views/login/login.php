@@ -1,6 +1,13 @@
 <!-- navbar -->
 <?php include('./views/partials/header.php'); ?>
 
+<?php if (isset($_GET['nouser']) && $_GET['nouser']) { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    No user exists! please recheck the email
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<?php } ?>
+
 <!-- login form -->
 <div class="main-formbg">
   <div class="container">
