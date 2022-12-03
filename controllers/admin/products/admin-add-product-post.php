@@ -41,13 +41,22 @@ if (isset($_POST['add_product'])) {
         $stmt = $db->prepare("INSERT INTO `products` (product_name, generic_name, price, product_desc, expiration_date, company, stock, product_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssdsssis", $product_name, $generic_name, $price, $product_desc, $expiration_date, $company, $stock, $fileNameNew);
         $stmt->execute();
+        $product_id = $stmt->insert_id;
         move_uploaded_file($fileTempName, $fileDest);
         if ($stmt->affected_rows === 0) {
             header("location:/admin-products?error=1");
             die();
         }
+
         $stmt->close();
+
+        $stmt = $db->prepare("INSERT INTO `manages` (`admin_id`, `product_id`) VALUES (?, ?)");
+        $stmt->bind_param("ii", $_SESSION['user_id'], $product_id);
+        $stmt->execute();
+        $stmt->close();
+
         header("location:/admin-products?success=1");
+
     } else {
         header("location:/admin-products?error=1");
         die();

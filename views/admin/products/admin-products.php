@@ -3,7 +3,7 @@
 <?php include_once './views/admin/products/notification.php'; ?>
 
 
-<div class="container" height=200px>
+<div class="container">
     <div class="d-grid gap-2 mt-5">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#openAddProduct">Add Product</button>
     </div>
@@ -22,8 +22,9 @@
             <th>Company</th>
             <th>Product_image</th>
             <th>Action</th>
+        </thead>
         <tbody>
-            <?php include_once './views/admin/products/data_table.php'; ?>
+            <?php include_once './views/admin/products/products_data_table.php'; ?>
         </tbody>
     </table>
 

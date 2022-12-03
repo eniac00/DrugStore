@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2022 at 10:40 AM
+-- Generation Time: Dec 03, 2022 at 06:38 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -58,8 +58,38 @@ INSERT INTO `customers` (`customer_id`) VALUES
 (2),
 (6),
 (8),
-(13),
 (15);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manages`
+--
+
+CREATE TABLE `manages` (
+  `admin_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `manages`
+--
+
+INSERT INTO `manages` (`admin_id`, `product_id`) VALUES
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 13),
+(5, 14),
+(5, 15),
+(5, 16),
+(5, 17),
+(5, 18),
+(5, 19),
+(5, 20);
 
 -- --------------------------------------------------------
 
@@ -128,7 +158,6 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, 
 (5, 'admin2', 'admin2', 'admin2@gmail.com', '', 'admin2', '', '', ''),
 (6, 'abir', 'wow', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
 (8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(13, 'wassup', 'man', 'wow@gmail.com', '234234', 'password', NULL, NULL, NULL),
 (15, 'kimi', 'no nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL);
 
 --
@@ -146,6 +175,13 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
+
+--
+-- Indexes for table `manages`
+--
+ALTER TABLE `manages`
+  ADD KEY `admin_id` (`admin_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `products`
@@ -168,7 +204,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -191,6 +227,13 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `customers`
   ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `manages`
+--
+ALTER TABLE `manages`
+  ADD CONSTRAINT `manages_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`),
+  ADD CONSTRAINT `manages_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
