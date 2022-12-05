@@ -118,7 +118,7 @@ include_once './views/partials/header.php';
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description text-truncate"><?php echo $row['product_desc']; ?></p>
+                                        <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -161,7 +161,7 @@ include_once './views/partials/header.php';
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description text-truncate"><?php echo $row['product_desc']; ?></p>
+                                        <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -204,7 +204,7 @@ include_once './views/partials/header.php';
                                         </div>
                                     </div>
                                     <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                    <p class="description text-truncate"><?php echo $row['product_desc']; ?></p>
+                                    <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                     <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                     <div class="m-auto col-3">

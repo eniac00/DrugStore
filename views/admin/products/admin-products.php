@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="d-grid gap-2 mt-5">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#openAddProduct">Add Product</button>
+        <button type="button" class="submit-btn m-auto btn-block" data-bs-toggle="modal" data-bs-target="#openAddProduct">Add Product</button>
     </div>
     <br>
     <br>
