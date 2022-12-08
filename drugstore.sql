@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 08, 2022 at 07:55 PM
+-- Generation Time: Dec 08, 2022 at 08:26 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -162,7 +162,7 @@ INSERT INTO `products` (`product_id`, `product_name`, `generic_name`, `price`, `
 (6, 'Esocon', 'Esomeprazole Magnesium Trihydrate', 7, 'Esomeprazole is a proton pump inhibitor that inhibits gastric acid secretion by specifically inhibiting ATPase H + / K + in gastric parietal cells. Esomeprazole (omeprazole isomer) is the first unique optical isomer of proton pump inhibitors, which provides better acid control than racemic proton pump inhibitors.', '2024-09-02', 'Biopharma', 405, '638900aa150941.99945683.jpg'),
 (13, 'Rabe', 'Rabeprazole Sodium', 7, 'Rabeprazole is indicated in Duodenal ulcer Healing of erosive or ulcerative Gastroesophageal Reflux Disease (GERD). Treatment of symptomatic GERD. Maintenance of healing of erosive or ulcerative GERD Zollinger-Ellison Syndrome. Helicobacter pylori eradication to reduce the Risk of Duodenal Ulcer Recurrence.', '2024-07-06', 'Aristopharma', 448, '63890795262b57.05366327.jpg'),
 (14, 'Finix', 'Rabeprazole Sodium', 7, 'Rabeprazole suppresses gastric acid secretion by inhibiting the gastric H+/K+-ATPase at the secretory surface of the gastric parietal cell.', '2023-12-12', 'Opsonin Pharma', 335, '63890808466eb1.80431037.jpg'),
-(15, 'Rabifast', 'Rabeprazole Sodium', 5, 'Rabeprazole Sodium', '2024-02-01', 'SK+F', 471, '6389085d064f32.17123599.jpg'),
+(15, 'Rabifast', 'Rabeprazole Sodium', 5, 'Rabifast is a medicine that reduces the amount of acid produced in your stomach. It is used for treating acid-related diseases of the stomach and intestine such as heartburn, acid reflux, peptic ulcer disease, and some other stomach conditions associated with excessive acid production. ', '2024-02-01', 'SK+F', 471, '6389085d064f32.17123599.jpg'),
 (16, 'Alatrol', 'Rabeprazole Sodium', 10, 'Alatrol is an effective H1 receptor antagonist and has no significant anticholinergic or antiserum effects. At the pharmacologically active dose level, it has almost no drowsiness and does not cause behavior changes. ', '2023-02-02', 'Square', 290, '638908a3ce41c4.28371108.jpg'),
 (17, 'Rupa', 'Rupatadine Fumarate', 12, 'Rupatadine is a non-sedative antagonist of histamine H1-receptors with a lengthy half-life. It also inhibits platelet-activating factor (PAF) (PAF). Histamine and PAF both produce bronchoconstriction, which increases vascular permeability and serves as a mediator in the inflammatory process.', '2024-05-05', 'Aristopharma', 90, '638908e7786b95.93101997.jpg'),
 (18, 'Monas', 'Montelukast Sodium', 16, 'Montelukast is a selective and orally active leukotriene receptor antagonist that inhibits the cysteinyl leukotriene receptor (CysLT1). The cysteinyl leukotrienes (LTC4, LTD4, LTE4) are products of arachidonic acid metabolism and are released from various cells, including mast cells and eosinophils. ', '2024-02-02', 'ACME', 195, '63890926b5aa17.82374312.jpg'),

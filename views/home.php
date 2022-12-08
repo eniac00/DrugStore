@@ -100,7 +100,7 @@ include_once './views/partials/header.php';
                 $str = mysqli_real_escape_string($db, $_GET['str']);
 
                 if ($str != '') {
-                    $query = "SELECT * FROM products WHERE `product_name` like '%$str%' or `product_desc` like '%$str%' ORDER BY `product_id` ASC;";
+                    $query = "SELECT * FROM products WHERE `product_name` like '%$str%' or `product_desc` like '%$str%' or generic_name like '%$str%' ORDER BY `product_id` ASC;";
                     $results = mysqli_query($db, $query);
 
                     if (mysqli_num_rows($results) > 0) {
@@ -118,7 +118,8 @@ include_once './views/partials/header.php';
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
+                                        <p class="gen_name text-muted text-truncate-2"><?php echo $row['generic_name']; ?></p>
+                                        <p class="description my-2 text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -161,7 +162,8 @@ include_once './views/partials/header.php';
                                             </div>
                                         </div>
                                         <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                        <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
+                                        <p class="gen_name text-muted text-truncate-2"><?php echo $row['generic_name']; ?></p>
+                                        <p class="description my-2 text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                         <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                         <div class="m-auto col-3">
@@ -204,7 +206,8 @@ include_once './views/partials/header.php';
                                         </div>
                                     </div>
                                     <h5 class="sub-header card-title" style="text-transform: capitalize;"><?php echo $row['product_name']; ?></h5>
-                                    <p class="description text-truncate-2"><?php echo $row['product_desc']; ?></p>
+                                    <p class="gen_name text-muted text-truncate-2"><?php echo $row['generic_name']; ?></p>
+                                    <p class="description my-2 text-truncate-2"><?php echo $row['product_desc']; ?></p>
                                     <p class="price text-center"><?php echo $row['price'] . 'tk'; ?></p>
 
                                     <div class="m-auto col-3">
