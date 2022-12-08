@@ -51,8 +51,8 @@
                             <a href='/?action=clearall' style='text-decoration:none;'>
                                 <button type='submit' name='clearall' class='btn m-auto btn-block btn-warning'>clear all</button>
                             </a> 
-                            <a href='#' style='text-decoration:none;'>
-                                <button type='submit' name='check-out' class='btn m-auto btn-block btn-success' style='background-color:#059377;'>check out</button>
+                            <a href='/order' style='text-decoration:none;'>
+                                <button type='submit' name='check-out' class='btn m-auto btn-block btn-success' style='background-color:#059377;'>Order</button>
                             </a> 
                         </td>
                     </tr>

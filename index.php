@@ -22,6 +22,12 @@ get('/logout', 'controllers/logout.php');
 get('/customer-profile', 'views/customer/profile/customer-profile.php');
 get('/customer-orders', 'views/customer/orders/customer-orders.php');
 
+
+// customer-cart
+get('/order', 'views/customer/orders/order.php');
+post('/order-post', 'controllers/customer/order-post.php');
+
+
 // admin
 get('/admin-dashboard', 'views/admin/admin-dashboard.php');
 get('/admin-products', 'views/admin/products/admin-products.php');
@@ -31,6 +37,13 @@ get('/admin-orders', 'views/admin/orders/admin-orders.php');
 post('/admin-add-product', 'controllers/admin/products/admin-add-product-post.php');
 post('/admin-delete-product', 'controllers/admin/products/admin-delete-product-post.php');
 post('/admin-update-product', 'controllers/admin/products/admin-update-product-post.php');
+
+
+// checkout
+get('/checkout', 'controllers/checkout/checkout.php');
+post('/checkout-success', 'controllers/checkout/success.php');
+post('/checkout-fail', 'controllers/checkout/fail.php');
+post('/checkout-cancel', 'controllers/checkout/cancel.php');
 
 
 // The 404.php has access to $_GET and $_POST

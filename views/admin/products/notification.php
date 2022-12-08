@@ -12,13 +12,13 @@
 <?php } ?>
 <?php if (isset($_GET['delete']) && $_GET['delete']) { ?>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Suceesuflly deleted the product!!!
+        Successfully deleted the product!!!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php } ?>
 <?php if (isset($_GET['update']) && $_GET['update']) { ?>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Suceesuflly updated product details!!!
+        Successufully updated product details!!!
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php } ?>

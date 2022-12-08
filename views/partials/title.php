@@ -28,6 +28,9 @@ switch(current(explode('?', $_SERVER['REQUEST_URI']))) {
   case '/customer-orders':
     $title = 'Orders';
     break;
+  case '/order':
+    $title = 'Delivery';
+    break;
   default:
     $title = 'Error';
     break;

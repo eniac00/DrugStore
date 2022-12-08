@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2022 at 06:38 PM
+-- Generation Time: Dec 08, 2022 at 07:55 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -42,6 +42,29 @@ INSERT INTO `admins` (`admin_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `approves`
+--
+
+CREATE TABLE `approves` (
+  `admin_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contains`
+--
+
+CREATE TABLE `contains` (
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customers`
 --
 
@@ -58,7 +81,8 @@ INSERT INTO `customers` (`customer_id`) VALUES
 (2),
 (6),
 (8),
-(15);
+(15),
+(16);
 
 -- --------------------------------------------------------
 
@@ -90,6 +114,22 @@ INSERT INTO `manages` (`admin_id`, `product_id`) VALUES
 (5, 18),
 (5, 19),
 (5, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `order_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `delivery_address` text NOT NULL,
+  `delivery_phone` varchar(30) NOT NULL,
+  `grand_total` double NOT NULL,
+  `prescription_id` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -132,6 +172,21 @@ INSERT INTO `products` (`product_id`, `product_name`, `generic_name`, `price`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `transaction_id` varchar(30) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `transaction_date` datetime NOT NULL,
+  `payment_method` varchar(100) NOT NULL,
+  `profit` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -158,7 +213,8 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, 
 (5, 'admin2', 'admin2', 'admin2@gmail.com', '', 'admin2', '', '', ''),
 (6, 'abir', 'wow', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
 (8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(15, 'kimi', 'no nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL);
+(15, 'kimi', 'no nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL),
+(16, 'Ezio', 'Auditore', 'ezio@gmail.com', '2432432432', 'brotherhood', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -169,6 +225,20 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, 
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `approves`
+--
+ALTER TABLE `approves`
+  ADD PRIMARY KEY (`admin_id`,`order_id`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Indexes for table `contains`
+--
+ALTER TABLE `contains`
+  ADD PRIMARY KEY (`order_id`,`product_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `customers`
@@ -184,10 +254,25 @@ ALTER TABLE `manages`
   ADD KEY `product_id` (`product_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `customer_id` (`customer_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `customer_id` (`customer_id`);
 
 --
 -- Indexes for table `users`
@@ -201,6 +286,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -210,7 +301,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -221,6 +312,20 @@ ALTER TABLE `users`
 --
 ALTER TABLE `admins`
   ADD CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `approves`
+--
+ALTER TABLE `approves`
+  ADD CONSTRAINT `approves_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`),
+  ADD CONSTRAINT `approves_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
+
+--
+-- Constraints for table `contains`
+--
+ALTER TABLE `contains`
+  ADD CONSTRAINT `contains_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `contains_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `customers`
@@ -234,6 +339,19 @@ ALTER TABLE `customers`
 ALTER TABLE `manages`
   ADD CONSTRAINT `manages_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`),
   ADD CONSTRAINT `manages_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
