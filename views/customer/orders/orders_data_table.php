@@ -17,7 +17,7 @@ foreach ($result as $key => $value) {
     echo "<td class='text-center'>" . $value['order_id'] . "</td>";
     echo "<td class='text-center'>" . $value['order_date'] . "</td>";
     echo "<td class='text-center'>" . $value['grand_total'] . "</td>";
-    echo "<td class='text-center'>Somethng</td>";
+    echo "<td class='text-center'><button class='btn btn-primary' onclick='view(".$value['order_id'].")'>View</button></td>";
 
     $stmt->bind_param("i", $value['order_id']);
     $stmt->execute();

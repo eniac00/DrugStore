@@ -3,6 +3,8 @@
 
 <?php include_once './views/customer/orders/notification.php'; ?>
 
+<div id="view"></div>
+
 <div class="container">
 
     <div class="d-grid gap-2 mt-5 text-center">

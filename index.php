@@ -26,6 +26,8 @@ get('/customer-orders', 'views/customer/orders/customer-orders.php');
 // customer-cart
 get('/order', 'views/customer/orders/order.php');
 post('/order-post', 'controllers/customer/order-post.php');
+get('/view-order', 'views/customer/orders/view-order.php');
+
 
 
 // admin
