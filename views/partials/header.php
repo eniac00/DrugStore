@@ -26,6 +26,7 @@
     <div class="header-bg">
       <nav class="navbar navbar-expand-lg">
         <?php
+        session_start();
         if (isset($_SESSION['user_id']) && !$_SESSION['is_admin']) {
           include_once './views/partials/buttons/user_buttons.php';
         } else if (isset($_SESSION['user_id']) && $_SESSION['is_admin']) {

@@ -1,11 +1,7 @@
 <?php
 
 require_once './config/db.php';
-
-if (!isset($_SESSION['user_id'])) {
-    header("location:/login");
-    die();
-}
+include_once './views/customer/is_customer_check.php';
 
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) === 0) {
     header("location:/");
@@ -68,7 +64,7 @@ include_once 'views/partials/header.php';
 
             ?>
 
-            <div class="col-md-7 col-lg-8">
+            <div class="col-md-7 col-lg-8 mb-5">
                 <h4 class="mb-3">Delivery address</h4>
                 <form action="order-post" method="post" enctype="multipart/form-data">
                     <div class="row g-3">

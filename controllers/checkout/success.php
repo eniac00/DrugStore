@@ -54,13 +54,25 @@ if ($code == 200 && !(curl_errno($handle))) {
 	$validated_on = $result->validated_on;
 	$gw_version = $result->gw_version;
 
+	$order_id = $result->value_a;
+	$user_id = $result->value_b;
+	$name = $result->value_c;
+	$is_admin = $result->value_d;
+
 	$stmt = $db->prepare("INSERT INTO `transactions` (`transaction_id`, `order_id`, `customer_id`, `transaction_date`, `payment_method`, `profit`) VALUES (?, ?, ?, ?, ?, ?)");
-	$stmt->bind_param("siissd", $tran_id, $_SESSION['order_id'], $_SESSION['user_id'], $tran_date, $card_type, $store_amount);
+	$stmt->bind_param("siissd", $tran_id, $order_id, $user_id, $tran_date, $card_type, $store_amount);
 	$stmt->execute();
 	$stmt->close();
+
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['name'] = $name;
+	$_SESSION['is_admin'] = $is_admin;
 	$_SESSION['payment-success'] = 1;
+
 	header("location:/customer-orders");
+	die();
 } else {
 	header("location:/customer-orders?payment-success=0");
 	echo "Failed to connect with SSLCOMMERZ";
+	die();
 }

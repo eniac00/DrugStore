@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['is_admin'] = 1;
             $stmt->close();
             header('location:/admin-dashboard');
+
         } else {
             $_SESSION['invalidpassword'] = "Invalid password";
             $stmt->close();

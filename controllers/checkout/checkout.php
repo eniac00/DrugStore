@@ -4,8 +4,6 @@ require_once './config/db.php';
 
 if (isset($_GET['order_id'])) {
 
-    $_SESSION['order_id'] = $_GET['order_id'];
-
     $stmt = $db->prepare("SELECT `fname`, `lname`, `email` FROM `users` WHERE `user_id`=?");
     $stmt->bind_param("i", $_SESSION['user_id']);
     $stmt->execute();
@@ -17,7 +15,7 @@ if (isset($_GET['order_id'])) {
     $email = $result['email'];
 
     $stmt = $db->prepare("SELECT `grand_total` FROM `orders` WHERE `order_id`=?");
-    $stmt->bind_param("i", $_SESSION['order_id']);
+    $stmt->bind_param("i", $_GET['order_id']);
     $stmt->execute();
     $result = $stmt->get_result()->fetch_array(MYSQLI_ASSOC);
     $stmt->close();
@@ -67,10 +65,10 @@ if (isset($_GET['order_id'])) {
     $post_data['ship_country'] = "Bangladesh";
 
     # OPTIONAL PARAMETERS
-    $post_data['value_a'] = "ref001";
-    $post_data['value_b '] = "ref002";
-    $post_data['value_c'] = "ref003";
-    $post_data['value_d'] = "ref004";
+    $post_data['value_a'] = $_GET['order_id'];
+    $post_data['value_b'] = $_SESSION['user_id'];
+    $post_data['value_c'] = $_SESSION['name'];
+    $post_data['value_d'] = $_SESSION['is_admin'];
 
     # CART PARAMETERS
     $post_data['cart'] = json_encode(
