@@ -5,7 +5,9 @@ $(document).ready(function () {
 });
 
 function view(order_id) {
-  var url = "/customer-view-order?order_id="+order_id;
+  var url = "/admin-view-order?order_id=" + order_id;
+
+  console.log(order_id);
 
   fetch(url)
     .then(function (response) {

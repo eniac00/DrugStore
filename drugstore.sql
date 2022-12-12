@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 08, 2022 at 08:26 PM
+-- Generation Time: Dec 12, 2022 at 07:42 PM
 -- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2-1ubuntu2.9
 
@@ -91,8 +91,8 @@ INSERT INTO `customers` (`customer_id`) VALUES
 --
 
 CREATE TABLE `manages` (
-  `admin_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL
+  `admin_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -207,13 +207,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, `house`, `city`, `street`) VALUES
-(1, 'sanjida', 'tasnim', 'sanjida@gmail.com', '234234234342', 'password', 'house', 'city', 'street'),
-(2, 'namreen', 'shaiyaz', 'namreen@gmail.com', '234234234342', 'password', 'house', 'city', 'street'),
+(1, 'Sanjida', 'Tasnim', 'sanjida@gmail.com', '234234234342', 'password', 'house', 'city', 'street'),
+(2, 'Namreen', 'Shaiyaz', 'namreen@gmail.com', '234234234342', 'password', 'house', 'city', 'street'),
 (3, 'admin1', 'admin1', 'admin1@gmail.com', '', 'admin1', '', '', ''),
 (5, 'admin2', 'admin2', 'admin2@gmail.com', '', 'admin2', '', '', ''),
-(6, 'abir', 'wow', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
+(6, 'Abir', 'Ahammed', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
 (8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(15, 'kimi', 'no nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL),
+(15, 'kimi', 'No Nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL),
 (16, 'Ezio', 'Auditore', 'ezio@gmail.com', '2432432432', 'brotherhood', NULL, NULL, NULL);
 
 --
@@ -250,6 +250,7 @@ ALTER TABLE `customers`
 -- Indexes for table `manages`
 --
 ALTER TABLE `manages`
+  ADD PRIMARY KEY (`admin_id`,`product_id`),
   ADD KEY `admin_id` (`admin_id`),
   ADD KEY `product_id` (`product_id`);
 
@@ -257,7 +258,7 @@ ALTER TABLE `manages`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`),
+  ADD PRIMARY KEY (`order_id`,`customer_id`),
   ADD KEY `customer_id` (`customer_id`);
 
 --
@@ -270,7 +271,7 @@ ALTER TABLE `products`
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`transaction_id`),
+  ADD PRIMARY KEY (`transaction_id`,`customer_id`),
   ADD KEY `order_id` (`order_id`),
   ADD KEY `customer_id` (`customer_id`);
 
@@ -289,19 +290,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
@@ -318,40 +319,40 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `approves`
   ADD CONSTRAINT `approves_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`),
-  ADD CONSTRAINT `approves_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
+  ADD CONSTRAINT `approves_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `contains`
 --
 ALTER TABLE `contains`
-  ADD CONSTRAINT `contains_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `contains_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `contains_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `customers`
 --
 ALTER TABLE `customers`
-  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`);
+  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `manages`
 --
 ALTER TABLE `manages`
   ADD CONSTRAINT `manages_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `admins` (`admin_id`),
-  ADD CONSTRAINT `manages_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+  ADD CONSTRAINT `manages_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `transactions`
 --
 ALTER TABLE `transactions`
-  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
+  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

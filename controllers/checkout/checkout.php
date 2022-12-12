@@ -30,9 +30,9 @@ if (isset($_GET['order_id'])) {
     $post_data['total_amount'] = $grand_total;
     $post_data['currency'] = "BDT";
     $post_data['tran_id'] = "SSLCZ_TEST_" . uniqid();
-    // $post_data['success_url'] = "https://390d-103-222-22-10.ap.ngrok.io/checkout-success";
-    // $post_data['fail_url'] = "https://390d-103-222-22-10.ap.ngrok.io/checkout-fail";
-    // $post_data['cancel_url'] = "https://390d-103-222-22-10.ap.ngrok.io/checkout-cancel";
+    // $post_data['success_url'] = "https://f5a5-103-222-22-3.ap.ngrok.io/checkout-success";
+    // $post_data['fail_url'] = "https://f5a5-103-222-22-3.ap.ngrok.io/checkout-fail";
+    // $post_data['cancel_url'] = "https://f5a5-103-222-22-3.ap.ngrok.io/checkout-cancel";
     $post_data['success_url'] = "http://localhost:8080/checkout-success";
     $post_data['fail_url'] = "http://localhost:8080/checkout-fail";
     $post_data['cancel_url'] = "http://localhost:8080/checkout-cancel";

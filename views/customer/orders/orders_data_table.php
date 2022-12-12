@@ -12,9 +12,11 @@ $stmt->close();
 
 $stmt = $db->prepare("WITH jt AS (SELECT approves.order_id, transactions.transaction_id FROM approves LEFT JOIN transactions ON approves.order_id=transactions.order_id) SELECT * FROM jt WHERE order_id=?");
 
+$sno = 1;
+
 foreach ($result as $key => $value) {
     echo "<tr>";
-    echo "<td class='text-center'>" . $value['order_id'] . "</td>";
+    echo "<td class='text-center'>" . $sno++ . "</td>";
     echo "<td class='text-center'>" . $value['order_date'] . "</td>";
     echo "<td class='text-center'>" . $value['grand_total'] . "</td>";
     echo "<td class='text-center'><button class='btn btn-primary' onclick='view(".$value['order_id'].")'>View</button></td>";

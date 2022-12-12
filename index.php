@@ -26,7 +26,7 @@ get('/customer-orders', 'views/customer/orders/customer-orders.php');
 // customer-cart
 get('/order', 'views/customer/orders/order.php');
 post('/order-post', 'controllers/customer/order-post.php');
-get('/view-order', 'views/customer/orders/view-order.php');
+get('/customer-view-order', 'views/customer/orders/view-order.php');
 
 
 
@@ -39,6 +39,16 @@ get('/admin-orders', 'views/admin/orders/admin-orders.php');
 post('/admin-add-product', 'controllers/admin/products/admin-add-product-post.php');
 post('/admin-delete-product', 'controllers/admin/products/admin-delete-product-post.php');
 post('/admin-update-product', 'controllers/admin/products/admin-update-product-post.php');
+
+post('/admin-add-customer', 'controllers/admin/customers/admin-add-customer-post.php');
+post('/admin-delete-customer', 'controllers/admin/customers/admin-delete-customer-post.php');
+post('/admin-update-customer', 'controllers/admin/customers/admin-update-customer-post.php');
+
+get('/admin-delete-order', 'controllers/admin/orders/admin-delete-order-post.php');
+get('/admin-update-order', 'controllers/admin/orders/admin-update-order-post.php');
+
+post('/admin-approve-order', 'controllers/admin/orders/admin-approve-order-post.php');
+get('/admin-view-order', 'views/admin/orders/view-order.php');
 
 
 // checkout

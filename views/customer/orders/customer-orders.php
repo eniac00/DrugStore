@@ -5,10 +5,10 @@
 
 <div id="view"></div>
 
-<div class="container">
+<div class="container mt-5 mb-5">
 
     <div class="d-grid gap-2 mt-5 text-center">
-        <h3>The Orders of <?php echo $_SESSION['name'] ?></h3>
+        <h3>The Orders of <?php echo ucwords($_SESSION['name']); ?></h3>
         <hr>
     </div>
     <br>
@@ -16,7 +16,7 @@
 
     <table id="data-table" class="table table-bordered display wrap" width=100%>
         <thead>
-            <th class='text-center'>Order_id</th>
+            <th class='text-center'>Sno</th>
             <th class='text-center'>Date</th>
             <th class='text-center'>Grand_total</th>
             <th class='text-center'>Summary</th>
