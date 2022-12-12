@@ -59,9 +59,11 @@ if (isset($_GET['order_id'])) {
                     <h6 class="mb-2"><b>Delivery phone: </b><?php echo $desc['delivery_phone']; ?></h6>
                     <h6 class=""><b>Delivery address: </b><?php echo $desc['delivery_address']; ?></h6>
                 </div>
-                <div class="mt-4 text-center">
-                    <iframe src="./images/prescriptions/<?php echo $desc['prescription_id']; ?>#toolbar=0" height="500" width="400"></iframe>
-                </div>
+                <?php if (!$desc['prescription_id'] == "") { ?>
+                    <div class="mt-4 text-center">
+                        <iframe src="./images/prescriptions/<?php echo $desc['prescription_id']; ?>#toolbar=0" height="500" width="400"></iframe>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

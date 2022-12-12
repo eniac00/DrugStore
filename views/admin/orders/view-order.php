@@ -24,7 +24,7 @@ if (isset($_GET['order_id'])) {
             </div>
             <div class="modal-body">
                 <div class="infos">
-                    <h6 class="mb-2"><b>Customer Name: </b><?php echo $desc['fname']; ?></h6>
+                    <h6 class="mb-2"><b>Customer Name: </b><?php echo $desc['fname'] . " " . $desc['lname']; ?></h6>
                     <h6 class="mb-2"><b>Customer Email: </b><?php echo $desc['email']; ?></h6>
                     <h6 class="mb-2"><b>Delivery phone: </b><?php echo $desc['delivery_phone']; ?></h6>
                     <h6 class="mb-2"><b>Delivery address: </b><?php echo $desc['delivery_address']; ?></h6>
@@ -60,9 +60,11 @@ if (isset($_GET['order_id'])) {
                     </ul>
                 </div>
 
-                <div class="text-center">
-                    <iframe src="./images/prescriptions/<?php echo $desc['prescription_id']; ?>#toolbar=0" height="500" width="400"></iframe>
-                </div>
+                <?php if (!$desc['prescription_id'] == "") { ?>
+                    <div class="mt-4 text-center">
+                        <iframe src="./images/prescriptions/<?php echo $desc['prescription_id']; ?>#toolbar=0" height="500" width="400"></iframe>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
