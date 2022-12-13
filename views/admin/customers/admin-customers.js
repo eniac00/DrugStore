@@ -16,7 +16,7 @@ $(document).ready(function () {
     let phone = allTD[4].innerText;
     let house = allTD[5].innerText;
     let city = allTD[6].innerText;
-    let street = allTD[7].innerHTML;
+    let street = allTD[7].innerText;
   
     // console.log(product_id, product_name, gen_name, product_desc, price, stock, company, product_image);
   

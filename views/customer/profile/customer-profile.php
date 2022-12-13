@@ -21,18 +21,11 @@ if ($res = mysqli_fetch_array($findresult)) {
 }
 ?>
 
-<?php
-$select = mysqli_query($db, "SELECT * FROM `users` WHERE user_id = '{$_SESSION['user_id']}'");
-if (mysqli_num_rows($select) > 0) {
-    $fetch = mysqli_fetch_assoc($select);
-}
-?>
-
 <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-lg-7 m-auto form-bg">
             <form class="form" action="/customer-profile-change-post" method="post">
-                <h2 class="header py-4">User Profile</h2>
+                <h2 class="header py-4">Your Profile</h2>
                 <input type="hidden" name="customer_id" value="<?php echo $_SESSION['user_id']; ?>">
                 <label>First Name</label>
                 <input type="text" name="fname" value="<?php echo $fname; ?>" class="form-control" required>
