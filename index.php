@@ -28,6 +28,10 @@ get('/order', 'views/customer/orders/order.php');
 post('/order-post', 'controllers/customer/order-post.php');
 get('/customer-view-order', 'views/customer/orders/view-order.php');
 
+//customer-profile
+
+post('/customer-profile-change-post', 'controllers/customer/profile/customer-profile-change-post.php');
+
 
 
 // admin
