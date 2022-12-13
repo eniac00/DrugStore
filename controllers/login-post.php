@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['is_admin'] = 1;
             $stmt->close();
             header('location:/admin-dashboard');
-
+            die();
         } else {
             $_SESSION['invalidpassword'] = "Invalid password";
             $stmt->close();
@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['is_admin'] = 0;
             $stmt->close();
             header('location:/');
+            die();
         } else {
             $_SESSION['invalidpassword'] = "Invalid password";
             $stmt->close();
