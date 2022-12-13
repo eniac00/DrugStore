@@ -36,19 +36,14 @@ if (mysqli_num_rows($select) > 0) {
                 <input type="hidden" name="customer_id" value="<?php echo $_SESSION['user_id']; ?>">
                 <label>First Name</label>
                 <input type="text" name="fname" value="<?php echo $fname; ?>" class="form-control" required>
-                <br>
                 <label>Last Name</label>
                 <input type="text" name="lname" value="<?php echo $lname; ?>" class="form-control" required>
-                <br>
                 <label>Email</label>
                 <input type="text" name="email" value="<?php echo $email; ?>" class="form-control" readonly>
-                <br>
                 <label>Phone</label>
                 <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control" required>
-                <br>
                 <label>Password</label>
                 <input type="text" name="password" value="<?php echo $password; ?>" class="form-control" required>
-                <br>
                 <label>City</label>
                 <input type="text" name="city" value="<?php echo $city; ?>" class="form-control" required>
                 <label>House</label>

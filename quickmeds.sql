@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 12, 2022 at 07:42 PM
--- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
--- PHP Version: 8.1.2-1ubuntu2.9
+-- Host: 127.0.0.1
+-- Generation Time: Dec 13, 2022 at 05:04 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `drugstore`
+-- Database: `quickmeds`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admins`
@@ -48,7 +48,21 @@ INSERT INTO `admins` (`admin_id`) VALUES
 CREATE TABLE `approves` (
   `admin_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `approves`
+--
+
+INSERT INTO `approves` (`admin_id`, `order_id`) VALUES
+(3, 38),
+(3, 39),
+(3, 40),
+(3, 41),
+(3, 44),
+(3, 46),
+(3, 48),
+(3, 49);
 
 -- --------------------------------------------------------
 
@@ -60,7 +74,58 @@ CREATE TABLE `contains` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contains`
+--
+
+INSERT INTO `contains` (`order_id`, `product_id`, `quantity`) VALUES
+(38, 2, 3),
+(38, 3, 1),
+(38, 6, 5),
+(39, 13, 8),
+(39, 17, 15),
+(40, 2, 3),
+(40, 3, 2),
+(40, 4, 1),
+(40, 15, 1),
+(40, 20, 100),
+(41, 1, 4),
+(41, 5, 2),
+(41, 16, 3),
+(42, 1, 1),
+(42, 2, 1),
+(42, 20, 1),
+(43, 14, 1),
+(43, 19, 2),
+(44, 1, 1),
+(44, 3, 1),
+(44, 5, 1),
+(44, 6, 1),
+(45, 3, 1),
+(45, 14, 1),
+(45, 20, 15),
+(46, 1, 1),
+(46, 2, 1),
+(46, 4, 1),
+(46, 5, 1),
+(46, 17, 3),
+(47, 1, 6),
+(47, 3, 1),
+(47, 19, 1),
+(48, 17, 1),
+(48, 18, 3),
+(49, 2, 1),
+(49, 4, 1),
+(49, 5, 1),
+(50, 3, 1),
+(50, 5, 1),
+(50, 13, 3),
+(50, 14, 1),
+(51, 2, 1),
+(51, 4, 1),
+(51, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -70,7 +135,7 @@ CREATE TABLE `contains` (
 
 CREATE TABLE `customers` (
   `customer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customers`
@@ -82,7 +147,10 @@ INSERT INTO `customers` (`customer_id`) VALUES
 (6),
 (8),
 (15),
-(16);
+(16),
+(25),
+(26),
+(27);
 
 -- --------------------------------------------------------
 
@@ -93,7 +161,7 @@ INSERT INTO `customers` (`customer_id`) VALUES
 CREATE TABLE `manages` (
   `admin_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `manages`
@@ -107,6 +175,7 @@ INSERT INTO `manages` (`admin_id`, `product_id`) VALUES
 (3, 5),
 (3, 6),
 (3, 13),
+(3, 23),
 (5, 14),
 (5, 15),
 (5, 16),
@@ -129,7 +198,27 @@ CREATE TABLE `orders` (
   `delivery_phone` varchar(30) NOT NULL,
   `grand_total` double NOT NULL,
   `prescription_id` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `delivery_address`, `delivery_phone`, `grand_total`, `prescription_id`) VALUES
+(38, 1, '2022-12-13 19:34:24', '123 San street sdcsd', '+8801715654651', 348, NULL),
+(39, 1, '2022-12-13 19:37:32', '123 ABC Dhaka', '+88012344565', 296, '6398801c6d45f3.68682774.pdf'),
+(40, 2, '2022-12-13 19:41:48', '14785 asdfgh ', '+88014785236', 470, '6398811c320819.50794354.pdf'),
+(41, 2, '2022-12-13 19:42:41', '123 tfvghnjmk fghjkl', '+880147852369', 168, NULL),
+(42, 2, '2022-12-13 19:43:29', '12 abc qwdq ', '+880147852369', 134, '6398818141b061.93068078.pdf'),
+(43, 6, '2022-12-13 19:44:31', 'asd trct ', '+880147852365', 137, '639881bf586cb9.93937261.pdf'),
+(44, 15, '2022-12-13 19:46:26', '123 Bababa lalal', '+880147258361', 144, '639882323cdd78.77004697.pdf'),
+(45, 15, '2022-12-13 19:47:22', '123 asd kil', '+880123456765', 122, NULL),
+(46, 16, '2022-12-13 19:56:33', '147 dohs asd', '+880963852741', 216, '6398849133f841.31493184.pdf'),
+(47, 1, '2022-12-13 20:01:54', '123 ABC asfh', '+880147258369', 147, NULL),
+(48, 8, '2022-12-13 20:06:12', '123 ABC ashgv', '+880145286397', 120, NULL),
+(49, 8, '2022-12-13 20:07:47', '123 ABC asdf', '+880147852963', 178, NULL),
+(50, 26, '2022-12-13 20:27:30', '741 Main Street', '+880147852741', 163, NULL),
+(51, 1, '2022-12-13 21:07:29', '123 ABC asd', '+880147852369', 164, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +236,7 @@ CREATE TABLE `products` (
   `company` varchar(30) NOT NULL,
   `stock` int(11) NOT NULL,
   `product_img` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
@@ -167,7 +256,8 @@ INSERT INTO `products` (`product_id`, `product_name`, `generic_name`, `price`, `
 (17, 'Rupa', 'Rupatadine Fumarate', 12, 'Rupatadine is a non-sedative antagonist of histamine H1-receptors with a lengthy half-life. It also inhibits platelet-activating factor (PAF) (PAF). Histamine and PAF both produce bronchoconstriction, which increases vascular permeability and serves as a mediator in the inflammatory process.', '2024-05-05', 'Aristopharma', 90, '638908e7786b95.93101997.jpg'),
 (18, 'Monas', 'Montelukast Sodium', 16, 'Montelukast is a selective and orally active leukotriene receptor antagonist that inhibits the cysteinyl leukotriene receptor (CysLT1). The cysteinyl leukotrienes (LTC4, LTD4, LTE4) are products of arachidonic acid metabolism and are released from various cells, including mast cells and eosinophils. ', '2024-02-02', 'ACME', 195, '63890926b5aa17.82374312.jpg'),
 (19, 'Azin', 'Azithromycin Dihydrate', 35, 'Azithromycin is stable to acid, so it can be taken orally without protecting stomach acid. Easily absorbed; greater absorption on an empty stomach. For oral dosage forms, the time for adults to reach maximum concentration is 2.1 to 3.2 hours. ', '2024-05-26', 'ACME', 190, '638909871c0560.27840587.jpg'),
-(20, 'Cal X', 'Sucralose', 1, '250 mg or 500 mg tablet: Usually utilized for the treatment or avoidance of calcium exhaustion in patients in whom dietary measures are lacking. ', '2026-05-01', 'ACME', 90, '63890a04d83453.95022903.jpg');
+(20, 'Cal X', 'Sucralose', 1, '250 mg or 500 mg tablet: Usually utilized for the treatment or avoidance of calcium exhaustion in patients in whom dietary measures are lacking. ', '2026-05-01', 'ACME', 90, '63890a04d83453.95022903.jpg'),
+(23, 'CEEVIT 250MG Tab', 'VITAMIN C', 3, 'Vitamin C supplement\r\nCompany	SQUARE PHARMACEUTICALS LIMITED\r\nGeneric Name	VITAMIN C\r\nStrength	250MG', '2023-12-14', 'SQUARE PHARMACEUTICALS LIMITED', 0, '6398897b1483e0.10670979.png');
 
 -- --------------------------------------------------------
 
@@ -182,7 +272,19 @@ CREATE TABLE `transactions` (
   `transaction_date` datetime NOT NULL,
   `payment_method` varchar(100) NOT NULL,
   `profit` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `order_id`, `customer_id`, `transaction_date`, `payment_method`, `profit`) VALUES
+('SSLCZ_TEST_639885898aeba', 38, 1, '2022-12-13 20:00:41', 'BKASH-BKash', 339.3),
+('SSLCZ_TEST_639885f8dddb2', 44, 15, '2022-12-13 20:02:33', 'DBBLMOBILEB-Dbbl Mobile Banking', 140.4),
+('SSLCZ_TEST_6398860dc850d', 41, 2, '2022-12-13 20:02:54', 'BKASH-BKash', 163.8),
+('SSLCZ_TEST_639887885dcec', 48, 8, '2022-12-13 20:09:12', 'VISA-Dutch Bangla', 117),
+('SSLCZ_TEST_639887a8b5661', 49, 8, '2022-12-13 20:09:44', 'CITYBANKIB-City Bank', 173.55),
+('SSLCZ_TEST_639896eede6c4', 39, 1, '2022-12-13 21:14:55', 'BKASH-BKash', 288.6);
 
 -- --------------------------------------------------------
 
@@ -200,7 +302,7 @@ CREATE TABLE `users` (
   `house` varchar(30) DEFAULT NULL,
   `city` varchar(30) DEFAULT NULL,
   `street` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -213,8 +315,11 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, 
 (5, 'admin2', 'admin2', 'admin2@gmail.com', '', 'admin2', '', '', ''),
 (6, 'Abir', 'Ahammed', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
 (8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(15, 'kimi', 'No Nawa', 'kimi@gmail.com', '23432424', 'kimikimi', NULL, NULL, NULL),
-(16, 'Ezio', 'Auditore', 'ezio@gmail.com', '2432432432', 'brotherhood', NULL, NULL, NULL);
+(15, 'Azmain', 'Morshed', 'azmain@gmail.com', '23432424', 'password', NULL, NULL, NULL),
+(16, 'Ezio', 'Auditore', 'ezio@gmail.com', '2432432432', 'brotherhood', 'MyHouse', 'Mycity', 'MyStreet'),
+(25, 'Asif', 'Mustafa', 'asif@gmail.com', '+8801715748963', 'password', NULL, NULL, NULL),
+(26, 'Inshera ', 'Ahmed', 'inshera@gmail.com', '+88017158963', 'password', NULL, NULL, NULL),
+(27, 'Rubayat', 'Hyder', 'rubayat@gmail.com', 'BHU', 'password', 'ABC', 'Dhaka', 'BHU');
 
 --
 -- Indexes for dumped tables
@@ -290,19 +395,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables

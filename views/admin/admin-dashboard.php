@@ -68,7 +68,7 @@
 
             <!-- row ends here  -->
         </div>
-        <div class="row">
+        <div class="row pt-4">
             <div class="col-lg-4 m-auto">
                 <!-- php here -->
                 <?php
@@ -106,7 +106,8 @@
                         <div class="card-body px-4  py-4">
                             <div class="card-text px-2 text-start pb-4">
                                 <i class="far fa-check-circle me-4" style="font-weight:400; font-size:60px; color: #059377; float: left;"></i>
-                                <h5 class="sub-header card-title" style="line-height: 30px; align: text-transform: capitalize;">Pending orders: <?php echo $no_of_rows; ?></h5>
+                                <h5 class="sub-header card-title" style="line-height: 30px; align: text-transform: capitalize;"><?php echo $no_of_rows; ?></h5>
+                                <h5 class="sub-header card-title" style="line-height: 30px; align: text-transform: capitalize;">Unapproved orders </h5>
                             </div>
                             <form action="/admin-orders" class="text-center">
                                 <button type="submit" class="submit-btn m-auto mb-2 btn-block">View Orders</button>
