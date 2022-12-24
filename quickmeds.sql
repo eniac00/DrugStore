@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 05:04 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Host: localhost:3306
+-- Generation Time: Dec 24, 2022 at 06:30 PM
+-- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2-1ubuntu2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admins`
@@ -48,7 +48,7 @@ INSERT INTO `admins` (`admin_id`) VALUES
 CREATE TABLE `approves` (
   `admin_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `approves`
@@ -59,8 +59,6 @@ INSERT INTO `approves` (`admin_id`, `order_id`) VALUES
 (3, 39),
 (3, 40),
 (3, 41),
-(3, 44),
-(3, 46),
 (3, 48),
 (3, 49);
 
@@ -74,7 +72,7 @@ CREATE TABLE `contains` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `contains`
@@ -99,18 +97,6 @@ INSERT INTO `contains` (`order_id`, `product_id`, `quantity`) VALUES
 (42, 20, 1),
 (43, 14, 1),
 (43, 19, 2),
-(44, 1, 1),
-(44, 3, 1),
-(44, 5, 1),
-(44, 6, 1),
-(45, 3, 1),
-(45, 14, 1),
-(45, 20, 15),
-(46, 1, 1),
-(46, 2, 1),
-(46, 4, 1),
-(46, 5, 1),
-(46, 17, 3),
 (47, 1, 6),
 (47, 3, 1),
 (47, 19, 1),
@@ -119,10 +105,6 @@ INSERT INTO `contains` (`order_id`, `product_id`, `quantity`) VALUES
 (49, 2, 1),
 (49, 4, 1),
 (49, 5, 1),
-(50, 3, 1),
-(50, 5, 1),
-(50, 13, 3),
-(50, 14, 1),
 (51, 2, 1),
 (51, 4, 1),
 (51, 6, 3);
@@ -135,7 +117,7 @@ INSERT INTO `contains` (`order_id`, `product_id`, `quantity`) VALUES
 
 CREATE TABLE `customers` (
   `customer_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customers`
@@ -145,12 +127,7 @@ INSERT INTO `customers` (`customer_id`) VALUES
 (1),
 (2),
 (6),
-(8),
-(15),
-(16),
-(25),
-(26),
-(27);
+(8);
 
 -- --------------------------------------------------------
 
@@ -161,7 +138,7 @@ INSERT INTO `customers` (`customer_id`) VALUES
 CREATE TABLE `manages` (
   `admin_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `manages`
@@ -198,7 +175,7 @@ CREATE TABLE `orders` (
   `delivery_phone` varchar(30) NOT NULL,
   `grand_total` double NOT NULL,
   `prescription_id` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
@@ -211,13 +188,9 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `order_date`, `delivery_address
 (41, 2, '2022-12-13 19:42:41', '123 tfvghnjmk fghjkl', '+880147852369', 168, NULL),
 (42, 2, '2022-12-13 19:43:29', '12 abc qwdq ', '+880147852369', 134, '6398818141b061.93068078.pdf'),
 (43, 6, '2022-12-13 19:44:31', 'asd trct ', '+880147852365', 137, '639881bf586cb9.93937261.pdf'),
-(44, 15, '2022-12-13 19:46:26', '123 Bababa lalal', '+880147258361', 144, '639882323cdd78.77004697.pdf'),
-(45, 15, '2022-12-13 19:47:22', '123 asd kil', '+880123456765', 122, NULL),
-(46, 16, '2022-12-13 19:56:33', '147 dohs asd', '+880963852741', 216, '6398849133f841.31493184.pdf'),
 (47, 1, '2022-12-13 20:01:54', '123 ABC asfh', '+880147258369', 147, NULL),
 (48, 8, '2022-12-13 20:06:12', '123 ABC ashgv', '+880145286397', 120, NULL),
 (49, 8, '2022-12-13 20:07:47', '123 ABC asdf', '+880147852963', 178, NULL),
-(50, 26, '2022-12-13 20:27:30', '741 Main Street', '+880147852741', 163, NULL),
 (51, 1, '2022-12-13 21:07:29', '123 ABC asd', '+880147852369', 164, NULL);
 
 -- --------------------------------------------------------
@@ -236,7 +209,7 @@ CREATE TABLE `products` (
   `company` varchar(30) NOT NULL,
   `stock` int(11) NOT NULL,
   `product_img` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -272,7 +245,7 @@ CREATE TABLE `transactions` (
   `transaction_date` datetime NOT NULL,
   `payment_method` varchar(100) NOT NULL,
   `profit` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transactions`
@@ -280,7 +253,6 @@ CREATE TABLE `transactions` (
 
 INSERT INTO `transactions` (`transaction_id`, `order_id`, `customer_id`, `transaction_date`, `payment_method`, `profit`) VALUES
 ('SSLCZ_TEST_639885898aeba', 38, 1, '2022-12-13 20:00:41', 'BKASH-BKash', 339.3),
-('SSLCZ_TEST_639885f8dddb2', 44, 15, '2022-12-13 20:02:33', 'DBBLMOBILEB-Dbbl Mobile Banking', 140.4),
 ('SSLCZ_TEST_6398860dc850d', 41, 2, '2022-12-13 20:02:54', 'BKASH-BKash', 163.8),
 ('SSLCZ_TEST_639887885dcec', 48, 8, '2022-12-13 20:09:12', 'VISA-Dutch Bangla', 117),
 ('SSLCZ_TEST_639887a8b5661', 49, 8, '2022-12-13 20:09:44', 'CITYBANKIB-City Bank', 173.55),
@@ -302,7 +274,7 @@ CREATE TABLE `users` (
   `house` varchar(30) DEFAULT NULL,
   `city` varchar(30) DEFAULT NULL,
   `street` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -314,12 +286,7 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `phone`, `password`, 
 (3, 'admin1', 'admin1', 'admin1@gmail.com', '', 'admin1', '', '', ''),
 (5, 'admin2', 'admin2', 'admin2@gmail.com', '', 'admin2', '', '', ''),
 (6, 'Abir', 'Ahammed', 'abir@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet'),
-(15, 'Azmain', 'Morshed', 'azmain@gmail.com', '23432424', 'password', NULL, NULL, NULL),
-(16, 'Ezio', 'Auditore', 'ezio@gmail.com', '2432432432', 'brotherhood', 'MyHouse', 'Mycity', 'MyStreet'),
-(25, 'Asif', 'Mustafa', 'asif@gmail.com', '+8801715748963', 'password', NULL, NULL, NULL),
-(26, 'Inshera ', 'Ahmed', 'inshera@gmail.com', '+88017158963', 'password', NULL, NULL, NULL),
-(27, 'Rubayat', 'Hyder', 'rubayat@gmail.com', 'BHU', 'password', 'ABC', 'Dhaka', 'BHU');
+(8, 'Maisha', 'Tanzim', 'maisha@gmail.com', '01875217186', 'password', 'wowhouse', 'wowcity', 'wowstreet');
 
 --
 -- Indexes for dumped tables
